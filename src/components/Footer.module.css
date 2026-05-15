@@ -1,0 +1,9 @@
+.footer {
+  padding: 16px 40px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #333;
+  font-family: var(--font-mono);
+}
