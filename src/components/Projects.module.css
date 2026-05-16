@@ -164,3 +164,18 @@
 }
 
 .linkGhost:hover { color: var(--text-primary); }
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 32px 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

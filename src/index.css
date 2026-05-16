@@ -64,3 +64,10 @@ main {
   opacity: 1;
   translate: 0 0;
 }
+
+@media (max-width: 768px) {
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+}
