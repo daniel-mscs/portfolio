@@ -12,6 +12,7 @@ export function useScrollReveal(threshold = 0.15) {
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [threshold])
+  
 
   return [ref, visible]
 }
