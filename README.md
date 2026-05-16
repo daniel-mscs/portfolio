@@ -1,47 +1,58 @@
-# Portfolio — Daniel Cardoso Alves
+# Daniel Alves — Portfólio
 
-## Como rodar
+Portfólio pessoal desenvolvido com React + Vite. Apresenta projetos, stack técnica e informações de contato.
+
+🌐 **[daniel-alvesdev.com.br](https://daniel-alvesdev.com.br)**
+
+---
+
+## Stack
+
+- **React + Vite** — frontend
+- **CSS Modules** — estilização por componente
+- **Vercel** — deploy contínuo
+
+## Como rodar localmente
 
 ```bash
 npm install
 npm run dev
 ```
 
+Acessa `http://localhost:5173`
+
 ## Estrutura
 
 ```
 src/
   components/
-    Navbar.jsx        # Logo animado + navegação
-    Navbar.module.css
+    Navbar.jsx        # Logo animado com digitação
     Hero.jsx          # Apresentação + avatar
-    Hero.module.css
-    Stack.jsx         # Tecnologias
-    Stack.module.css
-    Projects.jsx      # Cards de projetos
-    Projects.module.css
+    Stack.jsx         # Tecnologias com ícones
+    Projects.jsx      # Cards de projetos com screenshots
     About.jsx         # Sobre + stats
-    About.module.css
     Contact.jsx       # Links de contato
-    Contact.module.css
     Footer.jsx
-    Footer.module.css
+  hooks/
+    useScrollReveal.js  # Animação de entrada no scroll
   assets/
-    avatar.png        # <- coloca sua foto aqui
-  App.jsx
-  index.css           # variáveis CSS globais
-  main.jsx
+    avatar.png
+    rezenha.png
+    thaimax.png
+    dayforge.png
+public/
+  favicon.ico
+  curriculo.pdf
 ```
 
-## O que personalizar
+## Projetos no portfólio
 
-- `src/assets/avatar.png` — substitui pelo seu avatar
-- `src/components/Projects.jsx` — atualiza links dos projetos
-- `src/components/Contact.jsx` — coloca seu WhatsApp e email reais
-- `index.html` — atualiza o título e meta description
+| Projeto | Stack | Link |
+|--------|-------|------|
+| Rezenha Barbearia | HTML · CSS · JS | [ver](https://daniel-mscs.github.io/rezenhabarbearia) |
+| Thai Max | HTML · CSS · JS | [ver](https://daniel-mscs.github.io/thaimax) |
+| DayForge | React · Vite · Supabase | [ver](https://dayforge-web.vercel.app) |
 
-## Deploy no Vercel
+## Deploy
 
-1. Sobe o projeto no GitHub
-2. Importa no vercel.com
-3. Aponta o domínio `daniel.dev.com.br`
+Hospedado na Vercel com deploy automático a cada push na branch `main`.
