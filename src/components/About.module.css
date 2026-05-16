@@ -86,5 +86,11 @@
   .stats {
     justify-content: flex-start;
     flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .stat {
+    min-width: 80px;
+    flex: 1;
   }
 }
