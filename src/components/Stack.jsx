@@ -2,14 +2,14 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Stack.module.css'
 
 import { FaReact, FaJava, FaGitAlt, FaHtml5, FaCss3Alt } from 'react-icons/fa'
-import { SiVite, SiSupabase, SiSpringboot, SiJavascript, SiVercel } from 'react-icons/si'
+import { SiVite, SiSupabase, SiSpring, SiJavascript, SiVercel } from 'react-icons/si'
 
 const STACK = [
   { name: 'React', icon: FaReact },
   { name: 'Vite', icon: SiVite },
   { name: 'Supabase', icon: SiSupabase },
   { name: 'Java', icon: FaJava },
-  { name: 'Spring Boot', icon: SiSpringboot },
+  { name: 'Spring Boot', icon: SiSpring },
   { name: 'HTML', icon: FaHtml5 },
   { name: 'CSS', icon: FaCss3Alt },
   { name: 'JavaScript', icon: SiJavascript },
