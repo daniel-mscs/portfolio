@@ -11,8 +11,11 @@ function CoffeeCup() {
   useEffect(() => {
     let timeout
     let interval
+    let running = false
 
     function animate() {
+      if (running) return
+      running = true
       setFill(0)
       setOverflow(false)
       setReset(false)
@@ -26,7 +29,10 @@ function CoffeeCup() {
           setOverflow(true)
           timeout = setTimeout(() => {
             setReset(true)
-            timeout = setTimeout(animate, 600)
+            timeout = setTimeout(() => {
+              running = false
+              animate()
+            }, 600)
           }, 800)
         }
       }, 30)
