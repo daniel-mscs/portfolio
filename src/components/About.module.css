@@ -94,3 +94,16 @@
     flex: 1;
   }
 }
+
+.coffeeWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.coffeeLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
