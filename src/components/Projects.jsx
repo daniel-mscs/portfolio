@@ -8,19 +8,19 @@ import dayforge from '../assets/dayforge.png'
 const PROJECTS = [
   {
     name: 'Rezenha Barbearia',
-    desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp.',
+    desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp, apenas demonstrativo.',
     tags: ['React', 'Supabase', 'Vercel'],
     image: rezenha,
     live: 'https://daniel-mscs.github.io/rezenhabarbearia/',
-    code: 'https://github.com/daniel-mscs',
+    code: 'https://github.com/daniel-mscs/rezenhabarbearia',
   },
   {
     name: 'Thai Max',
-    desc: 'Site institucional para escola de Muay Thai com grade de horários, modalidades e formulário de contato.',
+    desc: 'Site institucional para escola de Muay Thai com grade de horários, modalidades e formulário de contato, apenas demonstrativo.',
     tags: ['React', 'Vercel'],
     image: thaimax,
     live: 'https://daniel-mscs.github.io/thaimaxmuaythai/',
-    code: 'https://github.com/daniel-mscs',
+    code: 'https://github.com/daniel-mscs/thaimaxmuaythai',
   },
   {
     name: 'DayForge',
