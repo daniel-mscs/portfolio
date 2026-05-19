@@ -21,9 +21,7 @@
   align-items: center;
 }
 
-.ext {
-  color: var(--accent);
-}
+.ext { color: var(--accent); }
 
 .cursor {
   display: inline-block;
@@ -50,11 +48,10 @@
   font-size: 13px;
   color: var(--text-muted);
   transition: color 0.15s;
+  text-decoration: none;
 }
 
-.links a:hover {
-  color: var(--text-primary);
-}
+.links a:hover { color: var(--text-primary); }
 
 .cta {
   background: transparent;
@@ -64,6 +61,7 @@
   font-size: 13px;
   color: var(--text-primary);
   transition: border-color 0.15s;
+  text-decoration: none;
 }
 
 .cta:hover {
@@ -71,17 +69,97 @@
   color: var(--accent);
 }
 
+/* ── HAMBURGUER ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 101;
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.bar1Open { transform: translateY(7px) rotate(45deg); }
+.bar2Open { opacity: 0; }
+.bar3Open { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── MENU MOBILE ── */
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 49px;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 20px;
+  z-index: 99;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.mobileMenuOpen {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobileLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobileLinks a {
+  font-size: 16px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+  font-family: var(--font-mono);
+}
+
+.mobileLinks a:hover { color: var(--accent); }
+
+.ctaMobile {
+  background: transparent;
+  border: 1px solid var(--border-hover);
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--text-primary);
+  text-decoration: none;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+
+.ctaMobile:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .nav {
     padding: 12px 16px;
   }
 
-  .links {
-    display: none;
-  }
+  .links { display: none; }
+  .ctaDesktop { display: none; }
 
-  .cta {
-    font-size: 11px;
-    padding: 6px 10px;
-  }
+  .hamburger { display: flex; }
+  .mobileMenu { display: flex; }
 }

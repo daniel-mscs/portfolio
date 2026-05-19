@@ -4,8 +4,8 @@ import styles from './Navbar.module.css'
 const EXTS = ['.dev', '.html', '.css', '.js', '.java']
 
 export default function Navbar() {
-  const [ext, setExt] = useState('.dev')
   const [displayed, setDisplayed] = useState('.dev')
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     let timeout
@@ -15,7 +15,6 @@ export default function Navbar() {
       i = (i + 1) % EXTS.length
       const next = EXTS[i]
       const prev = EXTS[i - 1] ?? EXTS[EXTS.length - 1]
-
       let step = 0
 
       function erase() {
@@ -46,28 +45,63 @@ export default function Navbar() {
     return () => clearTimeout(timeout)
   }, [])
 
+  function handleLink() {
+    setOpen(false)
+  }
+
   return (
-    <nav className={styles.nav}>
-      <div className={styles.logo}>
-        daniel<span className={styles.ext}>{displayed}</span>
-        <span className={styles.cursor} />
+    <>
+      <nav className={styles.nav}>
+        <div className={styles.logo}>
+          daniel<span className={styles.ext}>{displayed}</span>
+          <span className={styles.cursor} />
+        </div>
+
+        <ul className={styles.links}>
+          <li><a href="#sobre">sobre</a></li>
+          <li><a href="#projetos">projetos</a></li>
+          <li><a href="#stack">stack</a></li>
+          <li><a href="#contato">contato</a></li>
+        </ul>
+
+        <a
+          href="/curriculo.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.cta} ${styles.ctaDesktop}`}
+        >
+          ver currículo
+        </a>
+
+        <button
+          className={styles.hamburger}
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          <span className={`${styles.bar} ${open ? styles.bar1Open : ''}`} />
+          <span className={`${styles.bar} ${open ? styles.bar2Open : ''}`} />
+          <span className={`${styles.bar} ${open ? styles.bar3Open : ''}`} />
+        </button>
+      </nav>
+
+      {/* Menu mobile */}
+      <div className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ''}`}>
+        <ul className={styles.mobileLinks}>
+          <li><a href="#sobre" onClick={handleLink}>sobre</a></li>
+          <li><a href="#projetos" onClick={handleLink}>projetos</a></li>
+          <li><a href="#stack" onClick={handleLink}>stack</a></li>
+          <li><a href="#contato" onClick={handleLink}>contato</a></li>
+        </ul>
+        <a
+          href="/curriculo.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.ctaMobile}
+          onClick={handleLink}
+        >
+          ver currículo
+        </a>
       </div>
-
-      <ul className={styles.links}>
-        <li><a href="#sobre">sobre</a></li>
-        <li><a href="#projetos">projetos</a></li>
-        <li><a href="#stack">stack</a></li>
-        <li><a href="#contato">contato</a></li>
-      </ul>
-
-      <a
-        href="/curriculo.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.cta}
-      >
-        ver currículo
-      </a>
-    </nav>
+    </>
   )
 }
