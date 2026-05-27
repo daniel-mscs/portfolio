@@ -4,23 +4,18 @@ import styles from './Projects.module.css'
 import rezenha from '../assets/rezenha.png'
 import thaimax from '../assets/thaimax.png'
 import dayforge from '../assets/dayforge.png'
+import turnozen from '../assets/turnozen.png'
+import doraisa from '../assets/doraisa.png'
+import jessicaalmeida from '../assets/jessicaalmeida.png'
 
 const PROJECTS = [
   {
-    name: 'Rezenha Barbearia',
-    desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp, apenas demonstrativo.',
-    tags: ['React', 'Supabase', 'Vercel'],
-    image: rezenha,
-    live: 'https://daniel-mscs.github.io/rezenhabarbearia/',
-    code: 'https://github.com/daniel-mscs/rezenhabarbearia',
-  },
-  {
-    name: 'Thai Max',
-    desc: 'Site institucional para escola de Muay Thai com grade de horários, modalidades e formulário de contato, apenas demonstrativo.',
-    tags: ['React', 'Vercel'],
-    image: thaimax,
-    live: 'https://daniel-mscs.github.io/thaimaxmuaythai/',
-    code: 'https://github.com/daniel-mscs/thaimaxmuaythai',
+    name: 'TurnoZen',
+    desc: 'App para organização de escalas para quem trabalha em mais de um emprego. Calendário mensal, cálculo de horas de descanso, exportação de PDF e APK Android via Capacitor.',
+    tags: ['React', 'Vite', 'Supabase', 'Capacitor'],
+    image: turnozen,
+    live: 'https://turnozen.vercel.app',
+    code: 'https://github.com/daniel-mscs/turnozen',
   },
   {
     name: 'DayForge',
@@ -29,6 +24,38 @@ const PROJECTS = [
     image: dayforge,
     live: 'https://dayforge-web.vercel.app',
     code: 'https://github.com/daniel-mscs/dayforge',
+  },
+  {
+    name: 'Doraisa Tattoo',
+    desc: 'Site institucional para tatuadora com portfólio em carrossel, seção sobre, stats e agendamento via WhatsApp e Instagram. Demonstrativo.',
+    tags: ['HTML', 'CSS', 'JS'],
+    image: doraisa,
+    live: 'https://daniel-mscs.github.io/doraisa/',
+    code: 'https://github.com/daniel-mscs/doraisa',
+  },
+  {
+    name: 'Jéssica Almeida',
+    desc: 'Site institucional para terapeuta com listagem de serviços, depoimentos, seção sobre e agendamento via WhatsApp. Demonstrativo.',
+    tags: ['HTML', 'CSS', 'JS'],
+    image: jessicaalmeida,
+    live: 'https://daniel-mscs.github.io/site-jessica-almeida/',
+    code: 'https://github.com/daniel-mscs/site-jessica-almeida',
+  },
+  {
+    name: 'Rezenha Barbearia',
+    desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp. Demonstrativo.',
+    tags: ['React', 'Supabase', 'Vercel'],
+    image: rezenha,
+    live: 'https://daniel-mscs.github.io/rezenhabarbearia/',
+    code: 'https://github.com/daniel-mscs/rezenhabarbearia',
+  },
+  {
+    name: 'Thai Max',
+    desc: 'Site institucional para escola de Muay Thai com grade de horários, modalidades e formulário de contato. Demonstrativo.',
+    tags: ['React', 'Vercel'],
+    image: thaimax,
+    live: 'https://daniel-mscs.github.io/thaimaxmuaythai/',
+    code: 'https://github.com/daniel-mscs/thaimaxmuaythai',
   },
 ]
 
