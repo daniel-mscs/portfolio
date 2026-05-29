@@ -119,7 +119,7 @@ function CoffeeCup() {
 }
 
 const STATS = [
-  { num: '3', label: 'projetos' },
+  { num: '6', label: 'projetos' },
   { num: '1º', label: 'semestre' },
 ]
 
