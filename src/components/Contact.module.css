@@ -55,6 +55,81 @@
   color: var(--accent);
 }
 
+.form {
+  max-width: 440px;
+  margin: 40px auto 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formRow label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-faint);
+}
+
+.formRow input,
+.formRow textarea {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.formRow input:focus,
+.formRow textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.formRow textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.submit {
+  background: var(--accent);
+  color: var(--accent-dark);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+.submit:hover {
+  opacity: 0.88;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.success {
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.errorMsg {
+  font-size: 13px;
+  color: #f87171;
+}
+
 @media (max-width: 768px) {
   .contact {
     padding: 32px 20px;

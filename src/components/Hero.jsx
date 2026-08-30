@@ -24,6 +24,9 @@ export default function Hero() {
         <div className={styles.actions}>
           <a href="#projetos" className={styles.btnPrimary}>ver projetos</a>
           <a href="#contato" className={styles.btnOutline}>entrar em contato</a>
+          <a href="/curriculo.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnGhost}>
+            ver currículo
+          </a>
         </div>
       </div>
 
