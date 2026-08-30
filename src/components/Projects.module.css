@@ -54,6 +54,33 @@
   transform: translateY(-3px);
 }
 
+.browserBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--bg-hover);
+  border-bottom: 1px solid var(--border);
+}
+
+.browserDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--border-hover);
+}
+
+.browserUrl {
+  flex: 1;
+  margin-left: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .imageWrap {
   position: relative;
   overflow: hidden;

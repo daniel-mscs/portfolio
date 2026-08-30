@@ -38,14 +38,14 @@
 
 .chip span {
   font-size: 11px;
-  color: var(#333);
+  color: var(--text-muted);
   font-family: var(--font-mono);
   text-align: center;
 }
 
 .icon {
   font-size: 28px;
-  color: var(#333);
+  transition: filter 0.15s, transform 0.15s;
 }
 
 .chip:hover {
@@ -58,7 +58,8 @@
 }
 
 .chip:hover .icon {
-  color: var(--accent);
+  filter: brightness(1.15);
+  transform: scale(1.08);
 }
 
 @media (max-width: 768px) {

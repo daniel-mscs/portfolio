@@ -16,6 +16,7 @@ const PROJECTS = [
     image: dayforge,
     live: 'https://dayforge-web.vercel.app',
     code: 'https://github.com/daniel-mscs/dayforge',
+    domain: 'dayforge-web.vercel.app',
     status: 'em produção',
     featured: true,
   },
@@ -26,6 +27,7 @@ const PROJECTS = [
     image: turnozen,
     live: 'https://turnozen.vercel.app',
     code: 'https://github.com/daniel-mscs/turnozen',
+    domain: 'turnozen.vercel.app',
     status: 'em produção',
   },
   {
@@ -35,6 +37,7 @@ const PROJECTS = [
     image: doraisa,
     live: 'https://daniel-mscs.github.io/doraisa/',
     code: 'https://github.com/daniel-mscs/doraisa',
+    domain: 'daniel-mscs.github.io/doraisa',
     status: 'demonstrativo',
   },
   {
@@ -44,6 +47,7 @@ const PROJECTS = [
     image: jessicaalmeida,
     live: 'https://daniel-mscs.github.io/site-jessica-almeida/',
     code: 'https://github.com/daniel-mscs/site-jessica-almeida',
+    domain: 'daniel-mscs.github.io/site-jessica-almeida',
     status: 'demonstrativo',
   },
   {
@@ -51,8 +55,9 @@ const PROJECTS = [
     desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp.',
     tags: ['React', 'Supabase', 'Vercel'],
     image: rezenha,
-    live: 'https://daniel-mscs.github.io/rezenhabarbearia/',
+    live: 'https://rezenha-barbearia.vercel.app',
     code: 'https://github.com/daniel-mscs/rezenhabarbearia',
+    domain: 'rezenha-barbearia.vercel.app',
     status: 'demonstrativo',
   },
   {
@@ -62,6 +67,7 @@ const PROJECTS = [
     image: thaimax,
     live: 'https://daniel-mscs.github.io/thaimaxmuaythai/',
     code: 'https://github.com/daniel-mscs/thaimaxmuaythai',
+    domain: 'daniel-mscs.github.io/thaimaxmuaythai',
     status: 'demonstrativo',
   },
 ]
@@ -75,6 +81,13 @@ function ProjectCard({ project, index }) {
       className={`${styles.card} ${project.featured ? styles.featured : ''} reveal ${visible ? 'visible' : ''}`}
       style={{ transitionDelay: `${index * 120}ms` }}
     >
+      <div className={styles.browserBar}>
+        <span className={styles.browserDot} />
+        <span className={styles.browserDot} />
+        <span className={styles.browserDot} />
+        <span className={styles.browserUrl}>{project.domain}</span>
+      </div>
+
       <div className={styles.imageWrap}>
         <img src={project.image} alt={project.name} className={styles.image} />
         <div className={styles.overlay}>
