@@ -7,6 +7,7 @@ import dayforge from '../assets/dayforge.png'
 import turnozen from '../assets/turnozen.png'
 import doraisa from '../assets/doraisa.png'
 import jessicaalmeida from '../assets/jessicaalmeida.png'
+import yasmim from '../assets/yasmim.png'
 
 const PROJECTS = [
   {
@@ -31,6 +32,26 @@ const PROJECTS = [
     status: 'em produção',
   },
   {
+    name: 'Yasmim Tattoo',
+    desc: 'Site para tatuadora com galeria, agendamento e integração Firebase + Cloudinary.',
+    tags: ['React', 'Vite', 'Firebase', 'Cloudinary'],
+    image: yasmim,
+    live: 'https://yasmim-tattoo.vercel.app',
+    code: 'https://github.com/daniel-mscs/yasmim-tattoo',
+    domain: 'yasmim-tattoo.vercel.app',
+    status: 'em produção',
+  },
+  {
+    name: 'Rezenha Barbearia',
+    desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp.',
+    tags: ['React', 'Supabase', 'Vercel'],
+    image: rezenha,
+    live: 'https://rezenha-barbearia.vercel.app',
+    code: 'https://github.com/daniel-mscs/rezenhabarbearia',
+    domain: 'rezenha-barbearia.vercel.app',
+    status: 'demonstrativo',
+  },
+  {
     name: 'Doraisa Tattoo',
     desc: 'Site institucional para tatuadora com portfólio em carrossel, seção sobre, stats e agendamento via WhatsApp e Instagram.',
     tags: ['HTML', 'CSS', 'JS'],
@@ -48,16 +69,6 @@ const PROJECTS = [
     live: 'https://daniel-mscs.github.io/site-jessica-almeida/',
     code: 'https://github.com/daniel-mscs/site-jessica-almeida',
     domain: 'daniel-mscs.github.io/site-jessica-almeida',
-    status: 'demonstrativo',
-  },
-  {
-    name: 'Rezenha Barbearia',
-    desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp.',
-    tags: ['React', 'Supabase', 'Vercel'],
-    image: rezenha,
-    live: 'https://rezenha-barbearia.vercel.app',
-    code: 'https://github.com/daniel-mscs/rezenhabarbearia',
-    domain: 'rezenha-barbearia.vercel.app',
     status: 'demonstrativo',
   },
   {
