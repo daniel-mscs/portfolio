@@ -120,7 +120,7 @@ function CoffeeCup() {
 
 const STATS = [
   { num: '6', label: 'projetos' },
-  { num: '1º', label: 'semestre' },
+  { num: '2º', label: 'semestre' },
 ]
 
 export default function About() {
@@ -134,7 +134,7 @@ export default function About() {
       <div className={styles.text}>
         <p className={styles.label}>// sobre</p>
         <p>
-          Desenvolvedor web no <strong>primeiro semestre de Engenharia de Software</strong>,
+          Desenvolvedor web no <strong>segundo semestre de Engenharia de Software</strong>,
           com projetos reais já no ar.
         </p>
         <p>

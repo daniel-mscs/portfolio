@@ -94,19 +94,9 @@
   color: var(--accent);
 }
 
-.btnGhost {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--text-faint);
-  border-bottom: 1px solid var(--border-hover);
-  padding-bottom: 2px;
-  align-self: center;
-  transition: color 0.15s, border-color 0.15s;
-}
-
-.btnGhost:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+.avatarWrap {
+  position: relative;
+  flex-shrink: 0;
 }
 
 .avatar {
@@ -115,7 +105,31 @@
   border-radius: 50%;
   border: 2px solid var(--border);
   object-fit: cover;
-  flex-shrink: 0;
+  display: block;
+}
+
+.cvBadge {
+  position: absolute;
+  bottom: 6px;
+  right: -6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hover);
+  border-radius: 20px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: border-color 0.15s, color 0.15s, transform 0.15s;
+}
+
+.cvBadge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
@@ -146,7 +160,8 @@
     text-align: center;
   }
 
-  .btnGhost {
-    text-align: center;
+  .cvBadge {
+    font-size: 10px;
+    padding: 5px 10px;
   }
 }

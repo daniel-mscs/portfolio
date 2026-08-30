@@ -1,6 +1,7 @@
 import avatar from '../assets/avatar.png'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Hero.module.css'
+import { FaFileDownload } from 'react-icons/fa'
 
 export default function Hero() {
   const [ref, visible] = useScrollReveal(0.1)
@@ -23,18 +24,33 @@ export default function Hero() {
         </p>
         <div className={styles.actions}>
           <a href="#projetos" className={styles.btnPrimary}>ver projetos</a>
-          <a href="#contato" className={styles.btnOutline}>entrar em contato</a>
-          <a href="/curriculo.pdf" target="_blank" rel="noopener noreferrer" className={styles.btnGhost}>
-            ver currículo
+          <a
+            href="https://wa.me/5555991975065?text=Olá%20Daniel,%20vim%20pelo%20seu%20portfólio!"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.btnOutline}
+          >
+            fale comigo
           </a>
         </div>
       </div>
 
-      <img
-        src={avatar}
-        alt="Daniel Alves"
-        className={styles.avatar}
-      />
+      <div className={styles.avatarWrap}>
+        <img
+          src={avatar}
+          alt="Daniel Alves"
+          className={styles.avatar}
+        />
+        <a
+          href="/curriculo.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.cvBadge}
+        >
+          <FaFileDownload />
+          CV
+        </a>
+      </div>
     </section>
   )
 }
