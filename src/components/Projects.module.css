@@ -233,10 +233,47 @@
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 
   .card {
     width: 100%;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .featured {
+    grid-column: span 1;
+  }
+
+  .browserBar {
+    display: none;
+  }
+
+  .imageWrap,
+  .featured .imageWrap {
+    width: 96px;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .cardBody {
+    padding: 12px;
+    gap: 4px;
+  }
+
+  .cardDesc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .tags {
+    display: none;
   }
 }
