@@ -31,6 +31,14 @@
   gap: 16px;
 }
 
+.featured {
+  grid-column: span 2;
+}
+
+.featured .imageWrap {
+  aspect-ratio: 21 / 9;
+}
+
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -118,6 +126,32 @@
   font-size: 14px;
   font-weight: 600;
   color: #fff;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  text-transform: lowercase;
+}
+
+.statusLive {
+  background: rgba(110, 231, 183, 0.14);
+  color: var(--accent);
+}
+
+.statusDemo {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-faint);
 }
 
 .cardDesc {

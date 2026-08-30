@@ -10,52 +10,59 @@ import jessicaalmeida from '../assets/jessicaalmeida.png'
 
 const PROJECTS = [
   {
-    name: 'TurnoZen',
-    desc: 'App para organização de escalas para quem trabalha em mais de um emprego. Calendário mensal, cálculo de horas de descanso, exportação de PDF e APK Android via Capacitor.',
-    tags: ['React', 'Vite', 'Supabase', 'Capacitor'],
-    image: turnozen,
-    live: 'https://turnozen.vercel.app',
-    code: 'https://github.com/daniel-mscs/turnozen',
-  },
-  {
     name: 'DayForge',
     desc: 'PWA de saúde e performance com rastreamento de macros, treinos, cardio, sono e avatar RPG customizável.',
     tags: ['React', 'Vite', 'Supabase'],
     image: dayforge,
     live: 'https://dayforge-web.vercel.app',
     code: 'https://github.com/daniel-mscs/dayforge',
+    status: 'em produção',
+    featured: true,
+  },
+  {
+    name: 'TurnoZen',
+    desc: 'App para organização de escalas para quem trabalha em mais de um emprego. Calendário mensal, cálculo de horas de descanso, exportação de PDF e APK Android via Capacitor.',
+    tags: ['React', 'Vite', 'Supabase', 'Capacitor'],
+    image: turnozen,
+    live: 'https://turnozen.vercel.app',
+    code: 'https://github.com/daniel-mscs/turnozen',
+    status: 'em produção',
   },
   {
     name: 'Doraisa Tattoo',
-    desc: 'Site institucional para tatuadora com portfólio em carrossel, seção sobre, stats e agendamento via WhatsApp e Instagram. Demonstrativo.',
+    desc: 'Site institucional para tatuadora com portfólio em carrossel, seção sobre, stats e agendamento via WhatsApp e Instagram.',
     tags: ['HTML', 'CSS', 'JS'],
     image: doraisa,
     live: 'https://daniel-mscs.github.io/doraisa/',
     code: 'https://github.com/daniel-mscs/doraisa',
+    status: 'demonstrativo',
   },
   {
     name: 'Jéssica Almeida',
-    desc: 'Site institucional para terapeuta com listagem de serviços, depoimentos, seção sobre e agendamento via WhatsApp. Demonstrativo.',
+    desc: 'Site institucional para terapeuta com listagem de serviços, depoimentos, seção sobre e agendamento via WhatsApp.',
     tags: ['HTML', 'CSS', 'JS'],
     image: jessicaalmeida,
     live: 'https://daniel-mscs.github.io/site-jessica-almeida/',
     code: 'https://github.com/daniel-mscs/site-jessica-almeida',
+    status: 'demonstrativo',
   },
   {
     name: 'Rezenha Barbearia',
-    desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp. Demonstrativo.',
+    desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp.',
     tags: ['React', 'Supabase', 'Vercel'],
     image: rezenha,
     live: 'https://daniel-mscs.github.io/rezenhabarbearia/',
     code: 'https://github.com/daniel-mscs/rezenhabarbearia',
+    status: 'demonstrativo',
   },
   {
     name: 'Thai Max',
-    desc: 'Site institucional para escola de Muay Thai com grade de horários, modalidades e formulário de contato. Demonstrativo.',
+    desc: 'Site institucional para escola de Muay Thai com grade de horários, modalidades e formulário de contato.',
     tags: ['React', 'Vercel'],
     image: thaimax,
     live: 'https://daniel-mscs.github.io/thaimaxmuaythai/',
     code: 'https://github.com/daniel-mscs/thaimaxmuaythai',
+    status: 'demonstrativo',
   },
 ]
 
@@ -65,7 +72,7 @@ function ProjectCard({ project, index }) {
   return (
     <div
       ref={ref}
-      className={`${styles.card} reveal ${visible ? 'visible' : ''}`}
+      className={`${styles.card} ${project.featured ? styles.featured : ''} reveal ${visible ? 'visible' : ''}`}
       style={{ transitionDelay: `${index * 120}ms` }}
     >
       <div className={styles.imageWrap}>
@@ -81,7 +88,12 @@ function ProjectCard({ project, index }) {
       </div>
 
       <div className={styles.cardBody}>
-        <div className={styles.name}>{project.name}</div>
+        <div className={styles.cardTop}>
+          <div className={styles.name}>{project.name}</div>
+          <span className={`${styles.status} ${project.status === 'em produção' ? styles.statusLive : styles.statusDemo}`}>
+            {project.status}
+          </span>
+        </div>
         <div className={styles.cardDesc}>{project.desc}</div>
         <div className={styles.tags}>
           {project.tags.map((t) => (
