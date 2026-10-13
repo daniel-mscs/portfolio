@@ -26,10 +26,10 @@ const PROJECTS = [
     desc: 'App para organização de escalas para quem trabalha em mais de um emprego. Calendário mensal, cálculo de horas de descanso, exportação de PDF e APK Android via Capacitor.',
     tags: ['React', 'Vite', 'Supabase', 'Capacitor'],
     image: turnozen,
-    live: 'https://turnozen.vercel.app',
+    live: null,
     code: 'https://github.com/daniel-mscs/turnozen',
-    domain: 'turnozen.vercel.app',
-    status: 'em produção',
+    domain: 'fora do ar',
+    status: 'desativado',
   },
   {
     name: 'Yasmim Tattoo',
@@ -43,13 +43,13 @@ const PROJECTS = [
   },
   {
     name: 'Rezenha Barbearia',
-    desc: 'Site institucional com sistema de agendamento online, painel administrativo e integração com WhatsApp.',
-    tags: ['React', 'Supabase', 'Vercel'],
+    desc: 'Site institucional com agendamento online, painel administrativo e automação de mensagens no WhatsApp via API oficial da Meta.',
+    tags: ['React', 'Supabase', 'WhatsApp API', 'Vercel'],
     image: rezenha,
-    live: 'https://rezenha-barbearia.vercel.app',
+    live: 'https://barbeariarezenha.com.br',
     code: 'https://github.com/daniel-mscs/rezenhabarbearia',
-    domain: 'rezenha-barbearia.vercel.app',
-    status: 'demonstrativo',
+    domain: 'barbeariarezenha.com.br',
+    status: 'em produção',
   },
   {
     name: 'Doraisa Tattoo',
@@ -102,9 +102,11 @@ function ProjectCard({ project, index }) {
       <div className={styles.imageWrap}>
         <img src={project.image} alt={project.name} className={styles.image} />
         <div className={styles.overlay}>
-          <a href={project.live} target="_blank" rel="noopener noreferrer" className={styles.overlayBtn}>
-            Ver ao vivo
-          </a>
+          {project.live && (
+            <a href={project.live} target="_blank" rel="noopener noreferrer" className={styles.overlayBtn}>
+              Ver ao vivo
+            </a>
+          )}
           <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.overlayBtnOutline}>
             Ver código
           </a>
@@ -125,9 +127,11 @@ function ProjectCard({ project, index }) {
           ))}
         </div>
         <div className={styles.cardLinks}>
-          <a href={project.live} target="_blank" rel="noopener noreferrer" className={styles.link}>
-            → ver ao vivo
-          </a>
+          {project.live && (
+            <a href={project.live} target="_blank" rel="noopener noreferrer" className={styles.link}>
+              → ver ao vivo
+            </a>
+          )}
           <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.linkGhost}>
             GitHub
           </a>
