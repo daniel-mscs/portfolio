@@ -47,7 +47,7 @@ const PROJECTS = [
     tags: ['React', 'Supabase', 'WhatsApp API', 'Vercel'],
     image: rezenha,
     live: 'https://barbeariarezenha.com.br',
-    code: 'https://github.com/daniel-mscs/rezenhabarbearia',
+    code: null,
     domain: 'barbeariarezenha.com.br',
     status: 'em produção',
   },
@@ -107,9 +107,11 @@ function ProjectCard({ project, index }) {
               Ver ao vivo
             </a>
           )}
-          <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.overlayBtnOutline}>
-            Ver código
-          </a>
+          {project.code && (
+            <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.overlayBtnOutline}>
+              Ver código
+            </a>
+          )}
         </div>
       </div>
 
@@ -132,9 +134,11 @@ function ProjectCard({ project, index }) {
               → ver ao vivo
             </a>
           )}
-          <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.linkGhost}>
-            GitHub
-          </a>
+          {project.code && (
+            <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.linkGhost}>
+              GitHub
+            </a>
+          )}
         </div>
       </div>
     </div>
