@@ -8,6 +8,7 @@ import turnozen from '../assets/turnozen.png'
 import doraisa from '../assets/doraisa.png'
 import jessicaalmeida from '../assets/jessicaalmeida.png'
 import yasmim from '../assets/yasmim.png'
+import aferi from '../assets/aferi.png'
 
 const PROJECTS = [
   {
@@ -20,6 +21,16 @@ const PROJECTS = [
     domain: 'dayforge-web.vercel.app',
     status: 'em produção',
     featured: true,
+  },
+  {
+    name: 'Aferi',
+    desc: 'PWA de saúde pessoal para registrar pressão, glicemia, frequência cardíaca, peso e altura, com cálculo de IMC e exportação em PDF para levar ao médico. Tem apoio opcional via Pix: "Me paga um café?".',
+    tags: ['React', 'Vite', 'Firebase', 'PWA'],
+    image: aferi,
+    live: 'https://aferi-saude.vercel.app',
+    code: 'https://github.com/daniel-mscs/aferi',
+    domain: 'aferi-saude.vercel.app',
+    status: 'em produção',
   },
   {
     name: 'TurnoZen',
