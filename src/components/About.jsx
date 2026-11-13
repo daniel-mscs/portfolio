@@ -162,6 +162,12 @@ export default function About() {
         </div>
       </div>
 
+      <div className={styles.side}>
+      <div className={styles.sideStats}>
+        <div className={styles.stat}><div className={styles.statNum}>9</div><div className={styles.statLabel}>projetos</div></div>
+        <div className={styles.stat}><div className={styles.statNum}>1</div><div className={styles.statLabel}>sistema em uso</div></div>
+        <div className={styles.stat}><div className={styles.statNum}>2º</div><div className={styles.statLabel}>semestre</div></div>
+      </div>
       <div className={styles.badgeWrap}>
         <div className={styles.strap} />
         <div className={styles.badge}>
@@ -182,6 +188,7 @@ export default function About() {
             ))}
           </dl>
         </div>
+      </div>
       </div>
     </section>
   )

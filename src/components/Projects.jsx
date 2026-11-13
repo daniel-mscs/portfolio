@@ -130,6 +130,14 @@ const PROJECTS = [
   },
 ]
 
+const DEMOS = [
+  { name: 'Terrazzo Restobar', note: 'proposta · não contratado', image: null, live: 'https://terrazzo.daniel-alvesdev.com.br' },
+  { name: 'Imperial Fresh Food', note: 'proposta · não contratado', image: null, live: 'https://daniel-mscs.github.io/imperial-fresh-food/' },
+  { name: 'Doraisa Tattoo', note: 'demonstrativo', image: doraisa, live: 'https://daniel-mscs.github.io/doraisa/' },
+  { name: 'Jéssica Almeida', note: 'demonstrativo', image: jessicaalmeida, live: 'https://daniel-mscs.github.io/site-jessica-almeida/' },
+  { name: 'Thai Max', note: 'demonstrativo', image: thaimax, live: 'https://daniel-mscs.github.io/thaimaxmuaythai/' },
+]
+
 function statusClass(status) {
   if (status.startsWith('no ar')) return styles.statusLive
   if (status.startsWith('em ')) return styles.statusBuild
@@ -216,6 +224,24 @@ export default function Projects() {
       <div className={styles.grid}>
         {PROJECTS.map((p, i) => (
           <ProjectCard key={p.name} project={p} index={i} total={PROJECTS.length} />
+        ))}
+      </div>
+
+      <div className={styles.demosHead}>
+        <p className={styles.label}>// sites demonstrativos</p>
+        <p className={styles.desc}>landing pages e propostas para negócios locais</p>
+      </div>
+      <div className={styles.demos}>
+        {DEMOS.map((d) => (
+          <a key={d.name} href={d.live} target="_blank" rel="noopener noreferrer" className={styles.demo}>
+            {d.image
+              ? <img src={d.image} alt={d.name} />
+              : <div className={styles.demoPh}>{'</>'}</div>}
+            <div className={styles.demoInfo}>
+              <strong>{d.name}</strong>
+              <span>{d.note}</span>
+            </div>
+          </a>
         ))}
       </div>
     </section>

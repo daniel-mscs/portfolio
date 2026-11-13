@@ -332,3 +332,30 @@
   font-size: 12px;
   color: var(--text-faint);
 }
+
+.demosHead { margin-top: 56px; }
+
+.demos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.demo {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s, translate 0.3s;
+}
+.demo:hover { border-color: var(--accent); translate: 0 -4px; }
+.demo img, .demoPh { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.demoPh {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-hover); color: var(--accent);
+  font-family: var(--font-mono); font-size: 22px;
+}
+.demoInfo { padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
+.demoInfo strong { font-size: 13px; font-weight: 600; }
+.demoInfo span { font-family: var(--font-mono); font-size: 10px; color: var(--text-faint); }
