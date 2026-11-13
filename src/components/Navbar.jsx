@@ -3,6 +3,14 @@ import styles from './Navbar.module.css'
 
 const EXTS = ['.dev', '.html', '.css', '.js', '.java']
 
+const NAV = [
+  { id: 'sobre', label: 'sobre', num: '01' },
+  { id: 'habilidades', label: 'habilidades', num: '02' },
+  { id: 'projetos', label: 'projetos', num: '03' },
+  { id: 'trajetoria', label: 'trajetória', num: '04' },
+  { id: 'contato', label: 'contato', num: '05' },
+]
+
 export default function Navbar() {
   const [displayed, setDisplayed] = useState('.dev')
   const [open, setOpen] = useState(false)
@@ -58,10 +66,13 @@ export default function Navbar() {
         </div>
 
         <ul className={styles.links}>
-          <li><a href="#sobre">sobre</a></li>
-          <li><a href="#projetos">projetos</a></li>
-          <li><a href="#stack">stack</a></li>
-          <li><a href="#contato">contato</a></li>
+          {NAV.map((n) => (
+            <li key={n.id}>
+              <a href={`#${n.id}`}>
+                <span className={styles.num}>{n.num}</span> {n.label}
+              </a>
+            </li>
+          ))}
         </ul>
 
         <a
@@ -87,10 +98,13 @@ export default function Navbar() {
       {/* Menu mobile */}
       <div className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ''}`}>
         <ul className={styles.mobileLinks}>
-          <li><a href="#sobre" onClick={handleLink}>sobre</a></li>
-          <li><a href="#projetos" onClick={handleLink}>projetos</a></li>
-          <li><a href="#stack" onClick={handleLink}>stack</a></li>
-          <li><a href="#contato" onClick={handleLink}>contato</a></li>
+          {NAV.map((n) => (
+            <li key={n.id}>
+              <a href={`#${n.id}`} onClick={handleLink}>
+                <span className={styles.num}>{n.num}</span> {n.label}
+              </a>
+            </li>
+          ))}
         </ul>
         <a
           href="/curriculo.pdf"

@@ -166,3 +166,10 @@
     right: 0;
   }
 }
+
+.num {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75em;
+  opacity: 0.8;
+}
