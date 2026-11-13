@@ -384,8 +384,8 @@
   display: grid;
   grid-template-columns: 1fr 1.25fr;
   align-items: center;
-  gap: 48px;
-  padding: 0 8px;
+  gap: 72px;
+  padding: 0 clamp(32px, 6vw, 96px);
 }
 
 .ghost {
@@ -475,7 +475,8 @@
 @media (max-width: 900px) {
   .hScroll { height: auto !important; }
   .hSticky { position: static; height: auto; overflow: visible; }
-  .hTrack { flex-direction: column; gap: 56px; transform: none !important; }
+  .hTrack { flex-direction: column; gap: 0; transform: none !important; }
+  .slide { padding: 56px 0; border-bottom: 1px solid var(--border); }
   .slide { grid-template-columns: 1fr; gap: 20px; }
   .slide .mock { order: -1; }
   .hBar { display: none; }
