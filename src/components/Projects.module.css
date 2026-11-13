@@ -278,3 +278,57 @@
     display: none;
   }
 }
+
+.projects { scroll-margin-top: 80px; }
+
+.placeholder {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(110, 231, 183, 0.12), transparent 60%),
+    var(--bg-hover);
+  font-family: var(--font-mono);
+}
+.placeholder span { font-size: 32px; color: var(--accent); }
+.placeholder p { font-size: 13px; color: var(--text-secondary); }
+
+.metaLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.idx { color: var(--accent); }
+.kind { color: var(--text-faint); flex: 1; }
+
+.headline {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.forWho {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 10px 0 14px;
+}
+.forWho strong { color: var(--text-primary); font-weight: 500; }
+
+.statusBuild {
+  color: #F5A623;
+  border-color: rgba(245, 166, 35, 0.4);
+}
+
+.soon {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+}

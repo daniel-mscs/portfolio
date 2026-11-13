@@ -130,14 +130,20 @@ const PROJECTS = [
   },
 ]
 
-function ProjectCard({ project, index }) {
+function statusClass(status) {
+  if (status.startsWith('no ar')) return styles.statusLive
+  if (status.startsWith('em ')) return styles.statusBuild
+  return styles.statusDemo
+}
+
+function ProjectCard({ project, index, total }) {
   const [ref, visible] = useScrollReveal(0.1)
+  const num = String(index + 1).padStart(2, '0')
 
   return (
     <div
       ref={ref}
-      className={`${styles.card} ${project.featured ? styles.featured : ''} reveal ${visible ? 'visible' : ''}`}
-      style={{ transitionDelay: `${index * 120}ms` }}
+      className={`${styles.card} reveal ${visible ? 'visible' : ''}`}
     >
       <div className={styles.browserBar}>
         <span className={styles.browserDot} />
@@ -147,34 +153,35 @@ function ProjectCard({ project, index }) {
       </div>
 
       <div className={styles.imageWrap}>
-        <img src={project.image} alt={project.name} className={styles.image} />
-        <div className={styles.overlay}>
-          {project.live && (
-            <a href={project.live} target="_blank" rel="noopener noreferrer" className={styles.overlayBtn}>
-              Ver ao vivo
-            </a>
-          )}
-          {project.code && (
-            <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.overlayBtnOutline}>
-              Ver código
-            </a>
-          )}
-        </div>
+        {project.image ? (
+          <img src={project.image} alt={project.name} className={styles.image} />
+        ) : (
+          <div className={styles.placeholder}>
+            <span>{'</>'}</span>
+            <p>{project.name}</p>
+          </div>
+        )}
       </div>
 
       <div className={styles.cardBody}>
-        <div className={styles.cardTop}>
-          <div className={styles.name}>{project.name}</div>
-          <span className={`${styles.status} ${project.status === 'em produção' ? styles.statusLive : styles.statusDemo}`}>
+        <div className={styles.metaLine}>
+          <span className={styles.idx}>{num} / {String(total).padStart(2, '0')}</span>
+          <span className={styles.kind}>{project.name} · {project.kind}</span>
+          <span className={`${styles.status} ${statusClass(project.status)}`}>
             {project.status}
           </span>
         </div>
-        <div className={styles.cardDesc}>{project.desc}</div>
+
+        <h3 className={styles.headline}>{project.title}</h3>
+        <p className={styles.cardDesc}>{project.desc}</p>
+        <p className={styles.forWho}><strong>Pra quem:</strong> {project.forWho}</p>
+
         <div className={styles.tags}>
           {project.tags.map((t) => (
             <span key={t} className={styles.tag}>{t}</span>
           ))}
         </div>
+
         <div className={styles.cardLinks}>
           {project.live && (
             <a href={project.live} target="_blank" rel="noopener noreferrer" className={styles.link}>
@@ -185,6 +192,9 @@ function ProjectCard({ project, index }) {
             <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.linkGhost}>
               GitHub
             </a>
+          )}
+          {!project.live && !project.code && (
+            <span className={styles.soon}>em breve</span>
           )}
         </div>
       </div>
@@ -198,14 +208,14 @@ export default function Projects() {
   return (
     <section className={styles.projects} id="projetos">
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>
-        <p className={styles.label}>// projetos</p>
+        <p className={styles.label}>(03) // projetos</p>
         <h2 className={styles.title}>O que tenho construído</h2>
-        <p className={styles.desc}>projetos reais, para clientes reais</p>
+        <p className={styles.desc}>o problema, pra quem resolve e com o quê</p>
       </div>
 
       <div className={styles.grid}>
         {PROJECTS.map((p, i) => (
-          <ProjectCard key={p.name} project={p} index={i} />
+          <ProjectCard key={p.name} project={p} index={i} total={PROJECTS.length} />
         ))}
       </div>
     </section>
