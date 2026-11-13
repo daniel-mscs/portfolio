@@ -12,6 +12,7 @@ import yasmim from '../assets/yasmim.png'
 import aferi from '../assets/aferi.png'
 import terrazzo from '../assets/terrazzo.png'
 import imperial from '../assets/imperial.png'
+import dayforgeMobile from '../assets/dayforge-mobile.png'
 
 const PROJECTS = [
   {
@@ -36,6 +37,7 @@ const PROJECTS = [
     forWho: 'quem treina (academia, luta) e quer acompanhar a evolução num lugar só. Eu uso todo dia.',
     tags: ['React', 'Vite', 'Supabase', 'Capacitor', 'PWA'],
     image: dayforge,
+    mobile: dayforgeMobile,
     live: 'https://dayforge-web.vercel.app',
     code: 'https://github.com/daniel-mscs/dayforge',
     domain: 'dayforge-web.vercel.app',
