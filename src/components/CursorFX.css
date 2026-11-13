@@ -1,53 +1,45 @@
-.cursor-ring, .cursor-dot { display: none; }
-
-.has-cursor-fx, .has-cursor-fx a, .has-cursor-fx button { cursor: none; }
-
-.has-cursor-fx .cursor-ring,
-.has-cursor-fx .cursor-dot {
-  display: block;
+.fx-glow {
   position: fixed;
   top: 0;
   left: 0;
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(110, 231, 183, 0.13) 0%, rgba(34, 211, 238, 0.05) 35%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+@media (pointer: coarse) {
+  .fx-glow { display: none; }
+}
+
+.fx-dot,
+.fx-char,
+.fx-flash {
+  position: fixed;
   pointer-events: none;
   z-index: 9999;
-  border-radius: 50%;
 }
 
-.cursor-dot {
+.fx-dot {
   width: 6px;
   height: 6px;
-  margin: -3px 0 0 -3px;
-  background: var(--accent);
-}
-
-.cursor-ring {
-  width: 34px;
-  height: 34px;
-  margin: -17px 0 0 -17px;
-  border: 1.5px solid var(--accent);
-  opacity: 0.6;
-  transition: width 0.25s, height 0.25s, margin 0.25s, background 0.25s;
-}
-
-.cursor-ring.cursor-hover {
-  width: 56px;
-  height: 56px;
-  margin: -28px 0 0 -28px;
-  background: rgba(110, 231, 183, 0.1);
-}
-
-.cursor-ripple {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  margin: -5px 0 0 -5px;
   border-radius: 50%;
-  border: 2px solid var(--accent);
-  pointer-events: none;
-  z-index: 9998;
-  animation: ripple 0.6s ease-out forwards;
 }
 
-@keyframes ripple {
-  to { transform: scale(6); opacity: 0; }
+.fx-char {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  text-shadow: 0 0 8px currentColor;
+}
+
+.fx-flash {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(110, 231, 183, 0.25) 40%, transparent 70%);
 }

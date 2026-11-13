@@ -135,3 +135,5 @@ main {
   border-radius: 999px;
   padding: 4px 10px;
 }
+
+main, nav, footer { position: relative; z-index: 1; }
