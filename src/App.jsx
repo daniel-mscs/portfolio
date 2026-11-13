@@ -4,6 +4,7 @@ import Stack from './components/Stack'
 import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
+import Timeline from './components/Timeline'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <About />
         <Stack />
         <Projects />
+        <Timeline />
         <Contact />
       </main>
       <Footer />
