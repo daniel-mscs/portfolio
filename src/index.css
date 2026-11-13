@@ -59,13 +59,37 @@ main {
 /* ── SCROLL REVEAL ── */
 .reveal {
   opacity: 0;
-  translate: 0 28px;
-  transition: opacity 0.55s ease, translate 0.55s ease;
+  translate: 0 40px;
+  filter: blur(6px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
   opacity: 1;
   translate: 0 0;
+  filter: blur(0);
+}
+
+/* filhos aparecem um depois do outro */
+.reveal-stagger > * {
+  opacity: 0;
+  translate: 0 24px;
+  transition: opacity 0.6s ease, translate 0.6s ease;
+}
+.reveal-stagger.visible > * { opacity: 1; translate: 0 0; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.4s; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-stagger > * {
+    opacity: 1; translate: 0 0; filter: none; transition: none;
+  }
 }
 
 @media (max-width: 768px) {
