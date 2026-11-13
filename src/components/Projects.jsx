@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Projects.module.css'
 
@@ -144,87 +145,106 @@ function statusClass(status) {
   return styles.statusDemo
 }
 
-function ProjectCard({ project, index, total }) {
-  const [ref, visible] = useScrollReveal(0.1)
+function useHorizontal() {
+  const ref = useRef(null)
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = ref.current
+      if (!el) return
+      const total = el.offsetHeight - window.innerHeight
+      const p = total > 0 ? -el.getBoundingClientRect().top / total : 0
+      setProgress(Math.min(Math.max(p, 0), 1))
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
+
+  return [ref, progress]
+}
+
+function Slide({ p, index, total }) {
   const num = String(index + 1).padStart(2, '0')
-
   return (
-    <div
-      ref={ref}
-      className={`${styles.card} reveal ${index % 2 === 0 ? 'from-left' : 'from-right'} ${visible ? 'visible' : ''}`}
-    >
-      <div className={styles.browserBar}>
-        <span className={styles.browserDot} />
-        <span className={styles.browserDot} />
-        <span className={styles.browserDot} />
-        <span className={styles.browserUrl}>{project.domain}</span>
-      </div>
+    <article className={styles.slide}>
+      <span className={styles.ghost} aria-hidden="true">{p.name.split(' ')[0]}</span>
 
-      <div className={styles.imageWrap}>
-        {project.image ? (
-          <img src={project.image} alt={project.name} className={styles.image} />
-        ) : (
-          <div className={styles.placeholder}>
-            <span>{'</>'}</span>
-            <p>{project.name}</p>
-          </div>
-        )}
-      </div>
-
-      <div className={styles.cardBody}>
-        <div className={styles.metaLine}>
-          <span className={styles.idx}>{num} / {String(total).padStart(2, '0')}</span>
-          <span className={styles.kind}>{project.name} · {project.kind}</span>
-          <span className={`${styles.status} ${statusClass(project.status)}`}>
-            {project.status}
-          </span>
+      <div className={styles.slideText}>
+        <span className={styles.idx}>{num}</span>
+        <span className={styles.kicker}>
+          {p.kind} · <span className={statusClass(p.status)}>{p.status}</span>
+        </span>
+        <h3 className={styles.bigName}>{p.name}</h3>
+        <p className={styles.slideTitle}>{p.title}</p>
+        <p className={styles.slideDesc}>{p.desc}</p>
+        <p className={styles.forWho}><strong>Pra quem:</strong> {p.forWho}</p>
+        <div className={styles.pills}>
+          {p.tags.map((t) => <span key={t}>{t}</span>)}
         </div>
-
-        <h3 className={styles.headline}>{project.title}</h3>
-        <p className={styles.cardDesc}>{project.desc}</p>
-        <p className={styles.forWho}><strong>Pra quem:</strong> {project.forWho}</p>
-
-        <div className={styles.tags}>
-          {project.tags.map((t) => (
-            <span key={t} className={styles.tag}>{t}</span>
-          ))}
-        </div>
-
         <div className={styles.cardLinks}>
-          {project.live && (
-            <a href={project.live} target="_blank" rel="noopener noreferrer" className={styles.link}>
-              → ver ao vivo
-            </a>
-          )}
-          {project.code && (
-            <a href={project.code} target="_blank" rel="noopener noreferrer" className={styles.linkGhost}>
-              GitHub
-            </a>
-          )}
-          {!project.live && !project.code && (
-            <span className={styles.soon}>em breve</span>
-          )}
+          {p.live && <a href={p.live} target="_blank" rel="noopener noreferrer" className={styles.link}>→ ver ao vivo</a>}
+          {p.code && <a href={p.code} target="_blank" rel="noopener noreferrer" className={styles.linkGhost}>GitHub</a>}
+          {!p.live && !p.code && <span className={styles.soon}>em breve</span>}
         </div>
       </div>
-    </div>
+
+      <div className={styles.mock}>
+        <div className={styles.mockBar}>
+          <span /><span /><span />
+          <em>{p.domain}</em>
+        </div>
+        {p.image
+          ? <img src={p.image} alt={p.name} className={styles.mockImg} />
+          : <div className={styles.mockPh}><b>{'</>'}</b><p>{p.name}</p></div>}
+      </div>
+    </article>
   )
 }
 
 export default function Projects() {
   const [ref, visible] = useScrollReveal()
+  const [hRef, progress] = useHorizontal()
+  const total = PROJECTS.length
+  const active = Math.round(progress * (total - 1))
 
   return (
     <section className={styles.projects} id="projetos">
       <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>
         <p className={styles.label}>(03) // projetos</p>
         <h2 className={styles.title}>O que tenho construído</h2>
-        <p className={styles.desc}>o problema, pra quem resolve e com o quê</p>
+        <p className={styles.desc}>role pra baixo, os projetos passam pro lado →</p>
       </div>
 
-      <div className={styles.grid}>
-        {PROJECTS.map((p, i) => (
-          <ProjectCard key={p.name} project={p} index={i} total={PROJECTS.length} />
-        ))}
+      <div ref={hRef} className={styles.hScroll} style={{ height: `${total * 100}vh` }}>
+        <div className={styles.hSticky}>
+          <div
+            className={styles.hTrack}
+            style={{ transform: `translate3d(${-progress * (total - 1) * 100}%, 0, 0)` }}
+          >
+            {PROJECTS.map((p, i) => <Slide key={p.name} p={p} index={i} total={total} />)}
+          </div>
+
+          <div className={styles.hBar}>
+            <span className={styles.hCount}>
+              <b>{String(active + 1).padStart(2, '0')}</b> / {String(total).padStart(2, '0')}
+            </span>
+            <div className={styles.hSegs}>
+              {PROJECTS.map((p, i) => {
+                const seg = Math.min(Math.max(progress * (total - 1) - i + 1, 0), 1)
+                return (
+                  <span key={p.name}><i style={{ transform: `scaleX(${seg})` }} /></span>
+                )
+              })}
+            </div>
+            <span className={styles.hName}>{PROJECTS[active].name}</span>
+          </div>
+        </div>
       </div>
 
       <div className={styles.demosHead}>
@@ -234,9 +254,7 @@ export default function Projects() {
       <div className={styles.demos}>
         {DEMOS.map((d) => (
           <a key={d.name} href={d.live} target="_blank" rel="noopener noreferrer" className={styles.demo}>
-            {d.image
-              ? <img src={d.image} alt={d.name} />
-              : <div className={styles.demoPh}>{'</>'}</div>}
+            {d.image ? <img src={d.image} alt={d.name} /> : <div className={styles.demoPh}>{'</>'}</div>}
             <div className={styles.demoInfo}>
               <strong>{d.name}</strong>
               <span>{d.note}</span>
