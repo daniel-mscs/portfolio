@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './About.module.css'
+import avatar from '../assets/avatar.png'
 
 function CoffeeCup() {
   const [fill, setFill] = useState(0)
@@ -118,9 +119,15 @@ function CoffeeCup() {
   )
 }
 
-const STATS = [
-  { num: '6', label: 'projetos' },
-  { num: '2º', label: 'semestre' },
+
+
+const BADGE = [
+  { k: 'Local', v: 'Santa Maria, RS' },
+  { k: 'Idade', v: '30' },
+  { k: 'No código desde', v: '2025' },
+  { k: 'WhatsApp', v: '(55) 99197-5065', href: 'https://wa.me/5555991975065' },
+  { k: 'E-mail', v: 'daniel.mth1996@gmail.com', href: 'mailto:daniel.mth1996@gmail.com' },
+  { k: 'Hoje', v: 'Astrogildo · UNOPAR · Freelancer' },
 ]
 
 export default function About() {
@@ -129,31 +136,51 @@ export default function About() {
   return (
     <section
       ref={ref}
+      id="sobre"
       className={`${styles.about} reveal ${visible ? 'visible' : ''}`}
     >
       <div className={styles.text}>
-        <p className={styles.label}>// sobre</p>
+        <p className={styles.label}>(01) // sobre</p>
         <p>
-          Desenvolvedor web no <strong>segundo semestre de Engenharia de Software</strong>,
-          com projetos reais já no ar.
+          Sou <strong>técnico de enfermagem</strong> há mais de 2 anos e estudante de{' '}
+          <strong>Engenharia de Software</strong> na UNOPAR, conciliando plantões no
+          hospital com estudos e projetos de código.
         </p>
         <p>
-          Foco em <strong>sites e aplicações para negócios locais</strong> — barbearias,
-          academias e pequenas empresas que precisam de presença digital de qualidade.
+          A enfermagem me ensinou a trabalhar sob pressão, a ter atenção aos detalhes e a
+          entender o problema de quem está do outro lado. É por isso que, além de criar sites
+          e sistemas pra negócios locais, construo <strong>ferramentas pra área da saúde</strong>,
+          como o TurnoZen e o Aferi.
         </p>
         <p>
-          Fora do código: <strong>Muay Thai</strong> e academia.
+          Hoje meu foco é <strong>back-end com Java e Spring Boot</strong>. Busco uma vaga de
+          estágio ou júnior onde eu possa crescer, e no futuro trabalhar remoto.
         </p>
-      </div>
-      <div className={styles.stats}>
-        {STATS.map((s) => (
-          <div key={s.label} className={styles.stat}>
-            <div className={styles.statNum}>{s.num}</div>
-            <div className={styles.statLabel}>{s.label}</div>
-          </div>
-        ))}
-        <div className={styles.stat}>
+        <div className={styles.hobby}>
+          <span>Fora do código: Muay Thai, academia e</span>
           <CoffeeCup />
+        </div>
+      </div>
+
+      <div className={styles.badgeWrap}>
+        <div className={styles.strap} />
+        <div className={styles.badge}>
+          <div className={styles.badgeHole} />
+          <div className={styles.badgeTop}>
+            <span className={styles.mono}>DA</span>
+            <span className={styles.badgeOrg}>dev · eng. software</span>
+          </div>
+          <img src={avatar} alt="Daniel Alves" className={styles.badgePhoto} />
+          <div className={styles.badgeName}>Daniel Alves</div>
+          <div className={styles.badgeRole}>Dev Web · Java em formação</div>
+          <dl className={styles.badgeFields}>
+            {BADGE.map((f) => (
+              <div key={f.k}>
+                <dt>{f.k}</dt>
+                <dd>{f.href ? <a href={f.href} target="_blank" rel="noopener noreferrer">{f.v}</a> : f.v}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

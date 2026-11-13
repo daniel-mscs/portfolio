@@ -1,7 +1,7 @@
 import avatar from '../assets/avatar.png'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Hero.module.css'
-import { FaFileDownload } from 'react-icons/fa'
+import { FaFileDownload, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function Hero() {
   const [ref, visible] = useScrollReveal(0.1)
@@ -10,18 +10,23 @@ export default function Hero() {
     <section
       ref={ref}
       className={`${styles.hero} reveal ${visible ? 'visible' : ''}`}
-      id="sobre"
+      id="hero"
     >
       <div className={styles.left}>
-        <div className={styles.tag}>disponível para projetos</div>
+        <div className={styles.tag}>aberto a estágio e júnior</div>
         <h1 className={styles.title}>
           Daniel <span>Alves</span>
         </h1>
-        <p className={styles.sub}>// dev web & engenharia de software</p>
+        <p className={styles.sub}>// dev web · java & spring boot em formação</p>
         <p className={styles.desc}>
-          Estudante de Engenharia de Software construindo coisas reais.
-          Sites e aplicações para negócios locais que precisam sair do papel.
+          Técnico de enfermagem e estudante de Engenharia de Software.
+          Crio sistemas para negócios locais e ferramentas para a área da saúde.
         </p>
+        <div className={styles.meta}>
+          <span><FaMapMarkerAlt /> Santa Maria, RS</span>
+          <a href="https://github.com/daniel-mscs" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/daniel-mscs/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+        </div>
         <div className={styles.actions}>
           <a href="#projetos" className={styles.btnPrimary}>ver projetos</a>
           <a

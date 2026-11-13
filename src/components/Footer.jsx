@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <span className={styles.copy}>© {YEAR} Daniel Alves</span>
-      <a href="#" className={styles.top}>↑ topo</a>
+      <a href="#hero" className={styles.top}>↑ topo</a>
     </footer>
   )
 }

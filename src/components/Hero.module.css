@@ -173,3 +173,16 @@
   font-size: 0.75em;
   opacity: 0.8;
 }
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 4px 0 24px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+.meta span { display: flex; align-items: center; gap: 6px; }
+.meta a { font-size: 18px; transition: color 0.2s; }
+.meta a:hover { color: var(--accent); }
