@@ -130,6 +130,90 @@ const BADGE = [
   { k: 'Hoje', v: 'Astrogildo · UNOPAR · Freelancer' },
 ]
 
+const TERM = [
+  { cmd: 'whoami' },
+  { out: 'daniel-alves · dev web · java em formação' },
+  { cmd: 'Get-Content .\\foco.txt' },
+  { out: 'Back-end com Java + Spring Boot' },
+  { cmd: 'ls .\\projetos' },
+  { out: 'rezenha  dayforge  aferi  turnozen  ninjas  +4' },
+  { cmd: 'java --version' },
+  { out: 'openjdk 25' },
+  { cmd: 'git commit -m "aprendendo todo dia"' },
+  { out: '[main 7f3a2c1] aprendendo todo dia' },
+  { cmd: 'echo $status' },
+  { out: 'disponível para estágio / júnior ✔', ok: true },
+]
+
+const PROMPT = 'PS C:\\daniel>'
+
+function Terminal({ run }) {
+  const [lines, setLines] = useState([])
+  const [typing, setTyping] = useState('')
+
+  useEffect(() => {
+    if (!run) return
+    let alive = true
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+
+    async function play() {
+      while (alive) {
+        setLines([])
+        for (const l of TERM) {
+          if (!alive) return
+          if (l.cmd) {
+            for (let i = 1; i <= l.cmd.length; i++) {
+              if (!alive) return
+              setTyping(l.cmd.slice(0, i))
+              await sleep(45 + Math.random() * 45)
+            }
+            await sleep(250)
+            setTyping('')
+            setLines((prev) => [...prev, l])
+          } else {
+            setLines((prev) => [...prev, l])
+            await sleep(450)
+          }
+        }
+        await sleep(4000)
+      }
+    }
+
+    play()
+    return () => { alive = false }
+  }, [run])
+
+  return (
+    <div className={styles.terminal}>
+      <div className={styles.winBar}>
+        <div className={styles.winTab}>
+          <span className={styles.psIcon}>{'>_'}</span>
+          daniel — PowerShell
+          <span className={styles.tabX}>✕</span>
+        </div>
+        <span className={styles.winPlus}>+</span>
+        <div className={styles.winCtrls}>
+          <span>─</span><span>☐</span><span className={styles.winClose}>✕</span>
+        </div>
+      </div>
+
+      <div className={styles.termBody}>
+        {lines.map((l, i) =>
+          l.cmd ? (
+            <div key={i}><span className={styles.prompt}>{PROMPT}</span> {l.cmd}</div>
+          ) : (
+            <div key={i} className={l.ok ? styles.outOk : styles.out}>{l.out}</div>
+          )
+        )}
+        <div>
+          <span className={styles.prompt}>{PROMPT}</span> {typing}
+          <span className={styles.caret} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function About() {
   const [ref, visible] = useScrollReveal()
 
@@ -163,23 +247,7 @@ export default function About() {
       </div>
 
       <div className={`${styles.side} reveal from-right ${visible ? 'visible' : ''}`}>
-      <div className={styles.terminal}>
-        <div className={styles.termBar}>
-          <span /><span /><span />
-          <em>daniel.json</em>
-        </div>
-        <pre className={styles.termCode}>
-{`{
-  `}<b>"foco"</b>{`: `}<i>"Java + Spring Boot"</i>{`,
-  `}<b>"front"</b>{`: [`}<i>"React"</i>{`, `}<i>"Vite"</i>{`],
-  `}<b>"dados"</b>{`: [`}<i>"Supabase"</i>{`, `}<i>"Firebase"</i>{`],
-  `}<b>"projetos"</b>{`: `}<u>9</u>{`,
-  `}<b>"em_uso"</b>{`: `}<i>"Rezenha"</i>{`,
-  `}<b>"semestre"</b>{`: `}<u>2</u>{`,
-  `}<b>"disponivel"</b>{`: `}<u>true</u>{`
-}`}<span className={styles.caret} />
-        </pre>
-      </div>
+      <Terminal run={visible} />
       <div className={styles.badgeWrap}>
         <div className={styles.strap} />
         <div className={styles.badge}>
