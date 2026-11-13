@@ -163,10 +163,22 @@ export default function About() {
       </div>
 
       <div className={`${styles.side} reveal from-right ${visible ? 'visible' : ''}`}>
-      <div className={styles.sideStats}>
-        <div className={styles.stat}><div className={styles.statNum}>9</div><div className={styles.statLabel}>projetos</div></div>
-        <div className={styles.stat}><div className={styles.statNum}>1</div><div className={styles.statLabel}>sistema em uso</div></div>
-        <div className={styles.stat}><div className={styles.statNum}>2º</div><div className={styles.statLabel}>semestre</div></div>
+      <div className={styles.terminal}>
+        <div className={styles.termBar}>
+          <span /><span /><span />
+          <em>daniel.json</em>
+        </div>
+        <pre className={styles.termCode}>
+{`{
+  `}<b>"foco"</b>{`: `}<i>"Java + Spring Boot"</i>{`,
+  `}<b>"front"</b>{`: [`}<i>"React"</i>{`, `}<i>"Vite"</i>{`],
+  `}<b>"dados"</b>{`: [`}<i>"Supabase"</i>{`, `}<i>"Firebase"</i>{`],
+  `}<b>"projetos"</b>{`: `}<u>9</u>{`,
+  `}<b>"em_uso"</b>{`: `}<i>"Rezenha"</i>{`,
+  `}<b>"semestre"</b>{`: `}<u>2</u>{`,
+  `}<b>"disponivel"</b>{`: `}<u>true</u>{`
+}`}<span className={styles.caret} />
+        </pre>
       </div>
       <div className={styles.badgeWrap}>
         <div className={styles.strap} />
