@@ -98,3 +98,40 @@ main {
     padding: 0;
   }
 }
+
+/* ── ENTRADAS PELOS LADOS ── */
+.reveal.from-left:not(.visible) { translate: -70px 0; }
+.reveal.from-right:not(.visible) { translate: 70px 0; }
+.reveal.zoom:not(.visible) { scale: 0.92; }
+.reveal { transition-property: opacity, translate, filter, scale; }
+
+.reveal-stagger.zigzag > *:nth-child(odd) { translate: -50px 0; }
+.reveal-stagger.zigzag > *:nth-child(even) { translate: 50px 0; }
+.reveal-stagger.slide-left > * { translate: -40px 0; }
+.reveal-stagger.zigzag.visible > *,
+.reveal-stagger.slide-left.visible > * { translate: 0 0; }
+
+/* ── PROGRESSO DO SCROLL ── */
+.scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 1000;
+  transform-origin: left;
+}
+
+.scroll-pct {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  background: var(--bg-card);
+  border: 1px solid var(--border-hover);
+  border-radius: 999px;
+  padding: 4px 10px;
+}

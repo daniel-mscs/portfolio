@@ -151,7 +151,7 @@ function ProjectCard({ project, index, total }) {
   return (
     <div
       ref={ref}
-      className={`${styles.card} reveal ${visible ? 'visible' : ''}`}
+      className={`${styles.card} reveal ${index % 2 === 0 ? 'from-left' : 'from-right'} ${visible ? 'visible' : ''}`}
     >
       <div className={styles.browserBar}>
         <span className={styles.browserDot} />

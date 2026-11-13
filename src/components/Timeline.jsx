@@ -66,13 +66,13 @@ export default function Timeline() {
       <div className={styles.cols}>
         <div>
           <h4 className={styles.colTitle}>Experiência</h4>
-          <ol className={`${styles.list} reveal-stagger ${visible ? 'visible' : ''}`}>
+          <ol className={`${styles.list} reveal-stagger slide-left ${visible ? 'visible' : ''}`}>
             {WORK.map((w, i) => <Item key={w.role} item={w} index={i} />)}
           </ol>
         </div>
         <div>
           <h4 className={styles.colTitle}>Formação</h4>
-          <ol className={`${styles.list} reveal-stagger ${visible ? 'visible' : ''}`}>
+          <ol className={`${styles.list} reveal-stagger slide-left ${visible ? 'visible' : ''}`}>
             {EDU.map((e, i) => <Item key={e.role} item={e} index={i} />)}
           </ol>
         </div>

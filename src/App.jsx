@@ -6,12 +6,14 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Timeline from './components/Timeline'
 import CursorFX from './components/CursorFX'
+import ScrollProgress from './components/ScrollProgress'
 import Footer from './components/Footer'
 
 export default function App() {
   return (
     <>
       <CursorFX />
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />

@@ -137,9 +137,9 @@ export default function About() {
     <section
       ref={ref}
       id="sobre"
-      className={`${styles.about} reveal ${visible ? 'visible' : ''}`}
+      className={styles.about}
     >
-      <div className={styles.text}>
+      <div className={`${styles.text} reveal from-left ${visible ? 'visible' : ''}`}>
         <p className={styles.label}>(01) // sobre</p>
         <p>
           Sou <strong>técnico de enfermagem</strong> há mais de 2 anos e estudante de{' '}
@@ -162,7 +162,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className={styles.side}>
+      <div className={`${styles.side} reveal from-right ${visible ? 'visible' : ''}`}>
       <div className={styles.sideStats}>
         <div className={styles.stat}><div className={styles.statNum}>9</div><div className={styles.statLabel}>projetos</div></div>
         <div className={styles.stat}><div className={styles.statNum}>1</div><div className={styles.statLabel}>sistema em uso</div></div>

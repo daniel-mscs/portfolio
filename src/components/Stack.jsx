@@ -62,7 +62,7 @@ export default function Stack() {
     <section ref={ref} className={styles.stack} id="habilidades">
       <p className={styles.label}>(02) // habilidades</p>
 
-      <div className={`${styles.groups} reveal-stagger ${visible ? 'visible' : ''}`}>
+      <div className={`${styles.groups} reveal-stagger zigzag ${visible ? 'visible' : ''}`}>
         {GROUPS.map((g) => (
           <div key={g.title} className={styles.group}>
             <div className={styles.groupHead}>
