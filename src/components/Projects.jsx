@@ -169,7 +169,7 @@ function useHorizontal() {
   return [ref, progress]
 }
 
-function Slide({ p, index, total }) {
+function Slide({ p, index, onZoom }) {
   const num = String(index + 1).padStart(2, '0')
   return (
     <article className={styles.slide}>
@@ -200,7 +200,12 @@ function Slide({ p, index, total }) {
           <em>{p.domain}</em>
         </div>
         {p.image
-          ? <img src={p.image} alt={p.name} className={styles.mockImg} />
+          ? (
+            <button type="button" className={styles.zoomBtn} onClick={() => onZoom(p)}>
+              <img src={p.image} alt={p.name} className={styles.mockImg} />
+              <span className={styles.zoomHint}>🔍 ampliar</span>
+            </button>
+          )
           : <div className={styles.mockPh}><b>{'</>'}</b><p>{p.name}</p></div>}
       </div>
     </article>
@@ -212,6 +217,18 @@ export default function Projects() {
   const [hRef, progress] = useHorizontal()
   const total = PROJECTS.length
   const active = Math.round(progress * (total - 1))
+  const [zoom, setZoom] = useState(null)
+
+  useEffect(() => {
+    if (!zoom) return
+    const onKey = (e) => { if (e.key === 'Escape') setZoom(null) }
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [zoom])
 
   return (
     <section className={styles.projects} id="projetos">
@@ -227,7 +244,7 @@ export default function Projects() {
             className={styles.hTrack}
             style={{ transform: `translate3d(${-progress * (total - 1) * 100}%, 0, 0)` }}
           >
-            {PROJECTS.map((p, i) => <Slide key={p.name} p={p} index={i} total={total} />)}
+            {PROJECTS.map((p, i) => <Slide key={p.name} p={p} index={i} onZoom={setZoom} />)}
           </div>
 
           <div className={styles.hBar}>
@@ -262,6 +279,13 @@ export default function Projects() {
           </a>
         ))}
       </div>
+      {zoom && (
+        <div className={styles.lightbox} onClick={() => setZoom(null)}>
+          <button type="button" className={styles.lbClose} aria-label="Fechar">✕</button>
+          <img src={zoom.image} alt={zoom.name} onClick={(e) => e.stopPropagation()} />
+          <span className={styles.lbCaption}>{zoom.name} · {zoom.domain}</span>
+        </div>
+      )}
     </section>
   )
 }
