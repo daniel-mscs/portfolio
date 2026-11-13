@@ -10,6 +10,8 @@ import doraisa from '../assets/doraisa.png'
 import jessicaalmeida from '../assets/jessicaalmeida.png'
 import yasmim from '../assets/yasmim.png'
 import aferi from '../assets/aferi.png'
+import terrazzo from '../assets/terrazzo.png'
+import imperial from '../assets/imperial.png'
 
 const PROJECTS = [
   {
@@ -132,8 +134,8 @@ const PROJECTS = [
 ]
 
 const DEMOS = [
-  { name: 'Terrazzo Restobar', note: 'proposta · não contratado', image: null, live: 'https://terrazzo.daniel-alvesdev.com.br' },
-  { name: 'Imperial Fresh Food', note: 'proposta · não contratado', image: null, live: 'https://daniel-mscs.github.io/imperial-fresh-food/' },
+  { name: 'Terrazzo Restobar', note: 'proposta · não contratado', image: terrazzo, live: 'https://terrazzo.daniel-alvesdev.com.br' },
+  { name: 'Imperial Fresh Food', note: 'proposta · não contratado', image: imperial, live: 'https://daniel-mscs.github.io/imperial-fresh-food/' },
   { name: 'Doraisa Tattoo', note: 'demonstrativo', image: doraisa, live: 'https://daniel-mscs.github.io/doraisa/' },
   { name: 'Jéssica Almeida', note: 'demonstrativo', image: jessicaalmeida, live: 'https://daniel-mscs.github.io/site-jessica-almeida/' },
   { name: 'Thai Max', note: 'demonstrativo', image: thaimax, live: 'https://daniel-mscs.github.io/thaimaxmuaythai/' },
@@ -194,6 +196,16 @@ function Slide({ p, index, onZoom }) {
         </div>
       </div>
 
+      {p.mobile ? (
+        <div className={styles.phoneWrap}>
+          <button type="button" className={styles.zoomBtn} onClick={() => onZoom({ ...p, image: p.mobile })}>
+            <div className={styles.phone}>
+              <img src={p.mobile} alt={p.name} />
+            </div>
+            <span className={styles.zoomHint}>🔍 ampliar</span>
+          </button>
+        </div>
+      ) : (
       <div className={styles.mock}>
         <div className={styles.mockBar}>
           <span /><span /><span />
@@ -208,6 +220,7 @@ function Slide({ p, index, onZoom }) {
           )
           : <div className={styles.mockPh}><b>{'</>'}</b><p>{p.name}</p></div>}
       </div>
+      )}
     </article>
   )
 }
