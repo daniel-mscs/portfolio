@@ -55,3 +55,59 @@
     padding: 32px 20px;
   }
 }
+
+.contact { scroll-margin-top: 80px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 28px 0 24px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: left;
+  transition: border-color 0.3s, translate 0.3s;
+}
+.card:hover { border-color: var(--accent); translate: 0 -3px; }
+.card > div { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+.cardIcon { font-size: 22px; flex-shrink: 0; }
+
+.cardLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-faint);
+}
+
+.cardValue {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arrow { color: var(--text-faint); transition: color 0.3s; }
+.card:hover .arrow { color: var(--accent); }
+
+.cv {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  border-bottom: 1px dashed var(--accent);
+}
+
+@media (max-width: 600px) {
+  .cards { grid-template-columns: 1fr; }
+}

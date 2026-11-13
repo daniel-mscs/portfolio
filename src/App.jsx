@@ -5,11 +5,13 @@ import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
 import Timeline from './components/Timeline'
+import CursorFX from './components/CursorFX'
 import Footer from './components/Footer'
 
 export default function App() {
   return (
     <>
+      <CursorFX />
       <Navbar />
       <main>
         <Hero />
