@@ -16,18 +16,36 @@
   .fx-glow { display: none; }
 }
 
-.fx-dot,
-.fx-char,
-.fx-flash {
+.fx-ring,
+.fx-line,
+.fx-char {
   position: fixed;
   pointer-events: none;
   z-index: 9999;
 }
 
-.fx-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+.fx-ring {
+  width: 54px;
+  height: 54px;
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 12px rgba(110, 231, 183, 0.45), inset 0 0 8px rgba(110, 231, 183, 0.25);
+}
+
+.fx-line {
+  width: 18px;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+  transform-origin: left center;
+}
+
+.fx-char {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  text-shadow: 0 0 6px rgba(110, 231, 183, 0.8);
+  opacity: 0;
 }
 
 .fx-char {

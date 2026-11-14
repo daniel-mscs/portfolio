@@ -1,52 +1,57 @@
 import { useEffect, useRef } from 'react'
 import './CursorFX.css'
 
-const COLORS = ['#6ee7b7', '#F5A623', '#22d3ee', '#a78bfa', '#f472b6']
-const CHARS = ['{', '}', '</>', '0', '1', ';', '=>', '()', '#', '*']
+const BITS = ['0', '1', '0', '1', '</>', '{ }']
 
-function burst(x, y) {
-  const total = 18
-  for (let i = 0; i < total; i++) {
-    const el = document.createElement('span')
-    const isChar = i % 2 === 0
-    const color = COLORS[Math.floor(Math.random() * COLORS.length)]
-
-    el.className = isChar ? 'fx-char' : 'fx-dot'
-    if (isChar) el.textContent = CHARS[Math.floor(Math.random() * CHARS.length)]
-    el.style.left = `${x}px`
-    el.style.top = `${y}px`
-    el.style.color = color
-    el.style.background = isChar ? 'transparent' : color
-    el.style.boxShadow = isChar ? 'none' : `0 0 8px ${color}`
-    document.body.appendChild(el)
-
-    const angle = (Math.PI * 2 * i) / total + Math.random() * 0.5
-    const dist = 40 + Math.random() * 70
-    const dx = Math.cos(angle) * dist
-    const dy = Math.sin(angle) * dist
-
-    el.animate(
-      [
-        { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-        { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy + 20}px)) scale(0.3) rotate(${Math.random() * 180}deg)`, opacity: 0 },
-      ],
-      { duration: 700 + Math.random() * 300, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-    ).onfinish = () => el.remove()
-  }
-
-  const flash = document.createElement('span')
-  flash.className = 'fx-flash'
-  flash.style.left = `${x}px`
-  flash.style.top = `${y}px`
-  document.body.appendChild(flash)
-  flash.animate(
-    [{ transform: 'translate(-50%, -50%) scale(0)', opacity: 0.9 }, { transform: 'translate(-50%, -50%) scale(1)', opacity: 0 }],
-    { duration: 500, easing: 'ease-out' }
-  ).onfinish = () => flash.remove()
+function spawn(cls, x, y) {
+  const el = document.createElement('span')
+  el.className = cls
+  el.style.left = `${x}px`
+  el.style.top = `${y}px`
+  document.body.appendChild(el)
+  return el
 }
 
-export default function CursorFX() {
-  const glow = useRef(null)
+function burst(x, y) {
+  const ease = 'cubic-bezier(0.22, 1, 0.36, 1)'
+
+  // mira quadrada travando no alvo
+  const ring = spawn('fx-ring', x, y)
+  ring.animate(
+    [
+      { transform: 'translate(-50%, -50%) rotate(0deg) scale(0.3)', opacity: 1 },
+      { transform: 'translate(-50%, -50%) rotate(45deg) scale(1)', opacity: 0 },
+    ],
+    { duration: 550, easing: ease }
+  ).onfinish = () => ring.remove()
+
+  // linhas em cruz
+  ;[0, 90, 180, 270].forEach((deg) => {
+    const line = spawn('fx-line', x, y)
+    line.animate(
+      [
+        { transform: `rotate(${deg}deg) translateX(6px) scaleX(0.2)`, opacity: 1 },
+        { transform: `rotate(${deg}deg) translateX(34px) scaleX(1)`, opacity: 0 },
+      ],
+      { duration: 450, easing: ease }
+    ).onfinish = () => line.remove()
+  })
+
+  // bits subindo
+  for (let i = 0; i < 5; i++) {
+    const bit = spawn('fx-char', x, y)
+    bit.textContent = BITS[Math.floor(Math.random() * BITS.length)]
+    const dx = (Math.random() - 0.5) * 70
+    const dy = -40 - Math.random() * 50
+    bit.animate(
+      [
+        { transform: 'translate(-50%, -50%)', opacity: 0 },
+        { transform: `translate(calc(-50% + ${dx * 0.3}px), calc(-50% + ${dy * 0.3}px))`, opacity: 1, offset: 0.25 },
+        { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px))`, opacity: 0 },
+      ],
+      { duration: 800 + Math.random() * 300, delay: i * 40, easing: 'ease-out', fill: 'backwards' }
+    ).onfinish = () => bit.remove()
+  }
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
