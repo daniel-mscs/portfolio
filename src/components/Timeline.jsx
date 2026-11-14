@@ -13,12 +13,14 @@ const WORK = [
     ],
   },
   {
-    date: 'Jun 2024 — Atual',
+    date: 'Ago 2018 — Atual',
     role: 'Técnico de Enfermagem',
     place: 'Complexo Hospitalar Astrogildo de Azevedo · Santa Maria, RS',
     bullets: [
-      'Assistência direta ao paciente em escala de plantões',
-      'Trabalho em equipe multiprofissional e sob pressão',
+      'Uso diário do ERP MV PEP: prontuário eletrônico, prescrições e evolução',
+      'Farmácia hospitalar com o módulo MV SOUL: estoque e dispensação',
+      'Suporte a novos colaboradores no uso dos sistemas',
+      'Promovido internamente após concluir o curso técnico',
       'Vivência que inspirou o TurnoZen e o Aferi',
     ],
   },

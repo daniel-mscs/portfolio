@@ -1,7 +1,7 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Stack.module.css'
 
-import { FaReact, FaJava, FaGitAlt, FaHtml5, FaCss3Alt, FaDatabase } from 'react-icons/fa'
+import { FaReact, FaJava, FaGitAlt, FaHtml5, FaCss3Alt, FaDatabase, FaHospital } from 'react-icons/fa'
 import {
   SiVite, SiSupabase, SiSpringboot, SiJavascript, SiVercel, SiTypescript,
   SiTailwindcss, SiNodedotjs, SiFirebase, SiFlyway, SiGithub, SiCapacitor,
@@ -36,6 +36,7 @@ const GROUPS = [
     num: '03',
     title: 'Dados',
     items: [
+      { name: 'SQL', icon: FaDatabase, color: '#F29111' },
       { name: 'Supabase', icon: SiSupabase, color: '#3ECF8E' },
       { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
       { name: 'JPA / H2', icon: FaDatabase, color: '#9CA3AF' },
@@ -46,6 +47,7 @@ const GROUPS = [
     num: '04',
     title: 'Ferramentas',
     items: [
+      { name: 'ERP MV · SOUL / PEP', icon: FaHospital, color: '#6ee7b7' },
       { name: 'Git', icon: FaGitAlt, color: '#F05032' },
       { name: 'GitHub', icon: SiGithub, color: '#FFFFFF' },
       { name: 'Vercel', icon: SiVercel, color: '#FFFFFF' },

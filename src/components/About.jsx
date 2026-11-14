@@ -226,7 +226,7 @@ export default function About() {
       <div className={`${styles.text} reveal from-left ${visible ? 'visible' : ''}`}>
         <p className={styles.label}>(01) // sobre</p>
         <p>
-          Sou <strong>técnico de enfermagem</strong> há mais de 2 anos e estudante de{' '}
+          Há mais de <strong>6 anos no Complexo Hospitalar Astrogildo de Azevedo</strong>, hoje como técnico de enfermagem, e estudante de{' '}
           <strong>Engenharia de Software</strong> na UNOPAR, conciliando plantões no
           hospital com estudos e projetos de código.
         </p>

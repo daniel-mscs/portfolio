@@ -117,9 +117,16 @@
   transition: transform 0.2s, opacity 0.2s;
 }
 
+.mobileMenu {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .mobileMenuOpen {
   transform: translateY(0);
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .mobileLinks {
