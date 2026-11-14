@@ -365,17 +365,23 @@
 
 .hSticky {
   position: sticky;
+  isolation: isolate;
   top: 68px;
   height: calc(100vh - 68px);
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
+.hSticky { position: sticky; }
+.hScroll .hSticky { position: sticky; }
+.hSticky > .hBar { position: absolute; }
 
 .hTrack {
   flex: 1;
+  min-height: 0;
   display: flex;
   will-change: transform;
+  padding-bottom: 64px;
 }
 
 .slide {
@@ -458,16 +464,23 @@
 .mockPh p { color: var(--text-secondary); }
 
 .hBar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 18px 8px 24px;
+  gap: 28px;
+  padding: 18px clamp(20px, 3vw, 40px) 22px;
+  background: linear-gradient(to top, var(--bg) 60%, transparent);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 600;
 }
 .hCount b { color: var(--accent); font-weight: 400; }
 .hSegs { flex: 1; display: flex; gap: 4px; }
-.hSegs span { flex: 1; height: 2px; background: var(--border-hover); overflow: hidden; }
+.hSegs span { flex: 1; height: 2px; background: #2a2a2a; overflow: hidden; border-radius: 2px; }
 .hSegs i { display: block; height: 100%; background: var(--accent); transform-origin: left; }
 .hName { text-transform: uppercase; letter-spacing: 0.1em; min-width: 160px; text-align: right; }
 
