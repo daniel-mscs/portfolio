@@ -147,7 +147,7 @@ const TERM = [
 
 const PROMPT = 'PS C:\\daniel>'
 
-function Terminal({ run }) {
+export function Terminal({ run }) {
   const [lines, setLines] = useState([])
   const [typing, setTyping] = useState('')
 
@@ -247,7 +247,6 @@ export default function About() {
       </div>
 
       <div className={`${styles.side} reveal from-right ${visible ? 'visible' : ''}`}>
-      <Terminal run={visible} />
       <div className={styles.badgeWrap}>
         <div className={styles.strap} />
         <div className={styles.badge}>

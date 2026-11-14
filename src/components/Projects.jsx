@@ -14,6 +14,7 @@ import terrazzo from '../assets/terrazzo.png'
 import imperial from '../assets/imperial.png'
 import dayforgeMobile from '../assets/dayforge-mobile.png'
 import aferiMobile from '../assets/aferi-mobile.png'
+import atelier from '../assets/atelier.png'
 
 const PROJECTS = [
   {
@@ -130,7 +131,7 @@ const PROJECTS = [
     desc: 'Projeto da Imersão de IA em Engenharia de Software da Alura. É um site de portfólio pra ateliê com painel de edição, onde o dono troca textos e imagens sem mexer no código. Construí com apoio do Google AI Studio, revisando e ajustando o código gerado, e publiquei no GitHub Pages.',
     forWho: 'artistas e pequenos ateliês que querem um site que eles mesmos atualizam.',
     tags: ['React', 'TypeScript', 'Tailwind', 'Google AI Studio'],
-    image: null,
+    image: atelier,
     live: 'https://daniel-mscs.github.io/ateliervane',
     code: 'https://github.com/daniel-mscs/AtelierVANE',
     domain: 'daniel-mscs.github.io/ateliervane',

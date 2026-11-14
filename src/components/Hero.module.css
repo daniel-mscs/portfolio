@@ -186,3 +186,14 @@
 .meta span { display: flex; align-items: center; gap: 6px; }
 .meta a { font-size: 18px; transition: color 0.2s; }
 .meta a:hover { color: var(--accent); }
+
+.termWrap {
+  flex-shrink: 0;
+  rotate: 1.5deg;
+  transition: rotate 0.4s;
+}
+.termWrap:hover { rotate: 0deg; }
+
+@media (max-width: 900px) {
+  .termWrap { display: none; }
+}

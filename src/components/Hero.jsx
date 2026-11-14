@@ -1,6 +1,7 @@
 import avatar from '../assets/avatar.png'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Hero.module.css'
+import { Terminal } from './About'
 import { FaFileDownload, FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function Hero() {
@@ -40,21 +41,8 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className={styles.avatarWrap}>
-        <img
-          src={avatar}
-          alt="Daniel Alves"
-          className={styles.avatar}
-        />
-        <a
-          href="/curriculo.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.cvBadge}
-        >
-          <FaFileDownload />
-          CV
-        </a>
+            <div className={styles.termWrap}>
+        <Terminal run={visible} />
       </div>
     </section>
   )

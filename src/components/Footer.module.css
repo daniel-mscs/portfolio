@@ -60,3 +60,14 @@
   font-size: 12px;
   color: var(--text-faint);
 }
+
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 16px;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: fBlink 0.8s step-end infinite;
+}
+@keyframes fBlink { 50% { opacity: 0; } }
