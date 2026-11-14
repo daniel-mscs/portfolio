@@ -13,6 +13,7 @@ import aferi from '../assets/aferi.png'
 import terrazzo from '../assets/terrazzo.png'
 import imperial from '../assets/imperial.png'
 import dayforgeMobile from '../assets/dayforge-mobile.png'
+import aferiMobile from '../assets/aferi-mobile.png'
 
 const PROJECTS = [
   {
@@ -51,6 +52,7 @@ const PROJECTS = [
     forWho: 'quem tem hipertensão, diabetes ou precisa acompanhar a saúde em casa, e também familiares que cuidam de alguém.',
     tags: ['React', 'Vite', 'Firebase', 'PWA'],
     image: aferi,
+    mobile: aferiMobile,
     live: 'https://aferi-saude.vercel.app',
     code: 'https://github.com/daniel-mscs/aferi',
     domain: 'aferi-saude.vercel.app',
