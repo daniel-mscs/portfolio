@@ -626,3 +626,69 @@
 @media (max-height: 760px) {
   .phone { width: 240px; }
 }
+
+/* ── BOTÕES DOS PROJETOS ── */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.btnLive,
+.btnCode,
+.btnSoon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  transition: translate 0.2s, box-shadow 0.25s, border-color 0.25s, color 0.25s, background 0.25s;
+}
+
+.btnLive {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+.btnLive svg { font-size: 12px; transition: translate 0.2s; }
+.btnLive::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  translate: -120% 0;
+  transition: translate 0.6s ease;
+}
+.btnLive:hover {
+  translate: 0 -2px;
+  box-shadow: 0 10px 30px rgba(110, 231, 183, 0.35);
+}
+.btnLive:hover::after { translate: 120% 0; }
+.btnLive:hover svg { translate: 2px -2px; }
+
+.btnCode {
+  border: 1px solid var(--border-hover);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.02);
+}
+.btnCode svg { font-size: 18px; }
+.btnCode:hover {
+  translate: 0 -2px;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(110, 231, 183, 0.06);
+}
+
+.btnSoon {
+  border: 1px dashed var(--border-hover);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 13px;
+  cursor: default;
+}

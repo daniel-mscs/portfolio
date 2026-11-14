@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import styles from './Projects.module.css'
+import { FaGithub, FaExternalLinkAlt, FaRegClock } from 'react-icons/fa'
 
 import rezenha from '../assets/rezenha.png'
 import thaimax from '../assets/thaimax.png'
@@ -194,10 +195,20 @@ function Slide({ p, index, onZoom }) {
         <div className={styles.pills}>
           {p.tags.map((t) => <span key={t}>{t}</span>)}
         </div>
-        <div className={styles.cardLinks}>
-          {p.live && <a href={p.live} target="_blank" rel="noopener noreferrer" className={styles.link}>→ ver ao vivo</a>}
-          {p.code && <a href={p.code} target="_blank" rel="noopener noreferrer" className={styles.linkGhost}>GitHub</a>}
-          {!p.live && !p.code && <span className={styles.soon}>em breve</span>}
+        <div className={styles.actions}>
+          {p.live && (
+            <a href={p.live} target="_blank" rel="noopener noreferrer" className={styles.btnLive}>
+              Ver ao vivo <FaExternalLinkAlt />
+            </a>
+          )}
+          {p.code && (
+            <a href={p.code} target="_blank" rel="noopener noreferrer" className={styles.btnCode}>
+              <FaGithub /> Código
+            </a>
+          )}
+          {!p.live && !p.code && (
+            <span className={styles.btnSoon}><FaRegClock /> em breve</span>
+          )}
         </div>
       </div>
 
