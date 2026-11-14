@@ -15,7 +15,6 @@ function spawn(cls, x, y) {
 function burst(x, y) {
   const ease = 'cubic-bezier(0.22, 1, 0.36, 1)'
 
-  // mira quadrada travando no alvo
   const ring = spawn('fx-ring', x, y)
   ring.animate(
     [
@@ -25,7 +24,6 @@ function burst(x, y) {
     { duration: 550, easing: ease }
   ).onfinish = () => ring.remove()
 
-  // linhas em cruz
   ;[0, 90, 180, 270].forEach((deg) => {
     const line = spawn('fx-line', x, y)
     line.animate(
@@ -37,7 +35,6 @@ function burst(x, y) {
     ).onfinish = () => line.remove()
   })
 
-  // bits subindo
   for (let i = 0; i < 5; i++) {
     const bit = spawn('fx-char', x, y)
     bit.textContent = BITS[Math.floor(Math.random() * BITS.length)]
@@ -52,6 +49,10 @@ function burst(x, y) {
       { duration: 800 + Math.random() * 300, delay: i * 40, easing: 'ease-out', fill: 'backwards' }
     ).onfinish = () => bit.remove()
   }
+}
+
+export default function CursorFX() {
+  const glow = useRef(null)
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return

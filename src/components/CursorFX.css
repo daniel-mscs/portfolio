@@ -47,17 +47,3 @@
   text-shadow: 0 0 6px rgba(110, 231, 183, 0.8);
   opacity: 0;
 }
-
-.fx-char {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  text-shadow: 0 0 8px currentColor;
-}
-
-.fx-flash {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(110, 231, 183, 0.25) 40%, transparent 70%);
-}
